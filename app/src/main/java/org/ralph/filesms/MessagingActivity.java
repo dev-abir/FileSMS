@@ -82,10 +82,6 @@ public class MessagingActivity extends AppCompatActivity {
 			EasyPermissions.requestPermissions(this, permissionRationale, PERMISSION_SEND_SMS_AND_READ_PHONE_STATE, perms);
 		}
 		//TODO : If the message is too long, then divide the message into parts.
-		//TODO : Check isEndOfFile()
-		//TODO : Use String message.
-		//TODO : Here will go the messaging code...
-		//TODO : Check error, send message, Check error, send message(Every time check errors).
 		//TODO : Check error like numbers of 1256 digits!, and add them to "FAILED" tab.
 	}
 
@@ -224,6 +220,13 @@ try {
 
 	private class CustomAdapter extends ArrayAdapter<SMS> {
 
+
+		// TODO : Convert ListView to RecycleView
+
+
+
+
+
 		Context context;
 		List<SMS> smsList;
 
@@ -233,10 +236,10 @@ try {
 			smsList = objects;
 		}
 
-		@Override
+		/*@Override
 		public int getCount() {
 			return smsList.size();
-		}
+		}*/
 
 		@NonNull
 		@Override
