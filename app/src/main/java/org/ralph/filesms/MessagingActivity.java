@@ -49,24 +49,19 @@ public class MessagingActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_messaging);
-
-		String filePath = "";
-
-		Intent recievedIntent = getIntent();
-
-		if (!recievedIntent.getStringExtra(MainActivity.PATH_EXTRA_NAME).equals(null)) {
-			filePath = recievedIntent.getStringExtra(MainActivity.PATH_EXTRA_NAME);
-		} else {
-			// TODO : throw new runtime excp(maybe)
-		}
-
 		ListView listViewAllMessages = findViewById(R.id.list_view_all_messages);
 		customAdapter = new CustomAdapter(this, 123, new ArrayList<SMS>());   //(I don't know what to give in resource)
 		listViewAllMessages.setAdapter(customAdapter);
 
-		Log.d(MainActivity.LOG_DEBUG, filePath);
-
-		startMessaging(filePath);
+		String filePath;
+		Intent recievedIntent = getIntent();
+		filePath = recievedIntent.getStringExtra(MainActivity.PATH_EXTRA_NAME);
+		if (filePath != null) {
+			Log.d(MainActivity.LOG_DEBUG, filePath);
+			startMessaging(filePath);
+		} else {
+			Log.e(MainActivity.LOG_ERROR, "Intent extra file path is null.");
+		}
 	}
 
 	@AfterPermissionGranted(PERMISSION_SEND_SMS_AND_READ_PHONE_STATE)

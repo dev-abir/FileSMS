@@ -64,11 +64,16 @@ public class MainActivity extends AppCompatActivity {
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == REQUEST_OPEN_READ_FILE && resultCode == RESULT_OK) {
-			String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-			Log.d(LOG_DEBUG, filePath);
-			Intent intentStartMessagingActivity = new Intent(this, MessagingActivity.class);
-			intentStartMessagingActivity.putExtra(MainActivity.PATH_EXTRA_NAME, filePath);
-			startActivity(intentStartMessagingActivity);
+			String filePath;
+			if (data != null) {
+				filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
+				Log.d(LOG_DEBUG, filePath);
+				Intent intentStartMessagingActivity = new Intent(this, MessagingActivity.class);
+				intentStartMessagingActivity.putExtra(MainActivity.PATH_EXTRA_NAME, filePath);
+				startActivity(intentStartMessagingActivity);
+			} else {
+				Log.e(LOG_ERROR, "File path is null.");
+			}
 		}
 		//TODO : Show the user an example of a good csv file.
 	}
