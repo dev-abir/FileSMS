@@ -1,6 +1,6 @@
 package org.ralph.filesms;
 
-public class SMS /*implements Comparable*/ {
+public class SMS {
 
 	public static final int MESSAGE_SENDING_ONGOING = 45698;
 	public static final int MESSAGE_SENDING_FAILED = 45694;

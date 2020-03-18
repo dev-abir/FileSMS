@@ -66,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
 		if (requestCode == REQUEST_OPEN_READ_FILE && resultCode == RESULT_OK) {
 			String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
 			Log.d(LOG_DEBUG, filePath);
-
 			Intent intentStartMessagingActivity = new Intent(this, MessagingActivity.class);
 			intentStartMessagingActivity.putExtra(MainActivity.PATH_EXTRA_NAME, filePath);
 			startActivity(intentStartMessagingActivity);
 		}
 		//TODO : Show the user an example of a good csv file.
 	}
-
-
 }
