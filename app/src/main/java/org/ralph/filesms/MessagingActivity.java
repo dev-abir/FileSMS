@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import de.siegmar.fastcsv.reader.CsvContainer;
 import de.siegmar.fastcsv.reader.CsvReader;
@@ -181,11 +182,11 @@ try {
 			@Override
 			public void onReceive(Context arg0, Intent arg1) {
 				if (getResultCode() == Activity.RESULT_OK) {
-					customAdapter.getItem(arg1.getIntExtra(ADAPTER_INDEX, 0)).setMessageSendingStatus(SMS.MESSAGE_SENDING_SUCCESS);
+					Objects.requireNonNull(customAdapter.getItem(arg1.getIntExtra(ADAPTER_INDEX, 0))).setMessageSendingStatus(SMS.MESSAGE_SENDING_SUCCESS);
 					customAdapter.notifyDataSetChanged();
 				} else {
-					customAdapter.getItem(arg1.getIntExtra(ADAPTER_INDEX, 0)).setMessageSendingStatus(SMS.MESSAGE_SENDING_FAILED);
-					customAdapter.getItem(arg1.getIntExtra(ADAPTER_INDEX, 0)).setFailedReason(arg1.getDataString());
+					Objects.requireNonNull(customAdapter.getItem(arg1.getIntExtra(ADAPTER_INDEX, 0))).setMessageSendingStatus(SMS.MESSAGE_SENDING_FAILED);
+					Objects.requireNonNull(customAdapter.getItem(arg1.getIntExtra(ADAPTER_INDEX, 0))).setFailedReason(arg1.getDataString());
 					customAdapter.notifyDataSetChanged();
 				}
 			}
@@ -226,7 +227,7 @@ try {
 		Context context;
 		List<SMS> smsList;
 
-		public CustomAdapter(Context context, int resource, List<SMS> objects) {
+		CustomAdapter(Context context, int resource, List<SMS> objects) {
 			super(context, resource, objects);
 			this.context = context;
 			smsList = objects;
