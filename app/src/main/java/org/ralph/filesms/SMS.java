@@ -35,10 +35,6 @@ public class SMS /*implements Comparable*/ {
 		this.messageSendingStatus = messageSendingStatus;
 	}
 
-	public String getFailedReason() {
-		return failedReason;
-	}
-
 	public void setFailedReason(String failedReason) {
 		if (messageSendingStatus == MESSAGE_SENDING_FAILED) this.failedReason = failedReason;
 		else //TODO : FATAL ERROR....

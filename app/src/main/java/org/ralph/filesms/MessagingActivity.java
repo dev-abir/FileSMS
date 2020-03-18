@@ -62,7 +62,6 @@ public class MessagingActivity extends AppCompatActivity {
 		}
 
 		ListView listViewAllMessages = findViewById(R.id.list_view_all_messages);
-		//adapter = new ArrayAdapter<SMS>(this, android.R.layout.simple_list_item_1, new ArrayList<SMS>());
 		customAdapter = new CustomAdapter(this, 123, new ArrayList<SMS>());   //(I don't know what to give in resource)
 		listViewAllMessages.setAdapter(customAdapter);
 
@@ -227,20 +226,6 @@ try {
 			else return CSV_HEADER_TYPE_UNDEFINED;
 		} else return CSV_HEADER_TYPE_UNDEFINED;
 	}
-
-	/*private void sendMessage(String number) {
-		try {
-			//PendingIntent pendingIntent = new
-			Log.d(MainActivity.LOG_TEST, "Sending message : " + number);
-			//
-			customAdapter.add(new SMS(number, SMS.MESSAGE_SENDING_SUCCESS, null));
-		} catch (Exception e) {
-			customAdapter.add(new SMS(number, SMS.MESSAGE_SENDING_FAILED, e.getMessage()));
-			Log.d(MainActivity.LOG_ERROR, e.getMessage());
-			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		}
-	}*/
 
 	private class CustomAdapter extends ArrayAdapter<SMS> {
 

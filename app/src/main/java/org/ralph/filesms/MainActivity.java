@@ -69,46 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
 			Intent intentStartMessagingActivity = new Intent(this, MessagingActivity.class);
 			intentStartMessagingActivity.putExtra(MainActivity.PATH_EXTRA_NAME, filePath);
-			//intentStartMessagingActivity.putExtra(MESSAGE_EXTRA_NAME, message);
-			//intentStartMessagingActivity.putExtra(COUNTRY_CODE_EXTRA_NAME, countryCode);
 			startActivity(intentStartMessagingActivity);
-
-
-			/**/
-
-
-			/*
-
-			 */
 		}
-
-
 		//TODO : Show the user an example of a good csv file.
-
-
-
-
-		/*
-				 *
-				 *
-				//TODO : getPath - getExStorDir (DO PROPERLY.)
-				if ((path != null) && (path.contains("0/"))) {
-					if (data.getData().getPath().contains(".txt")) {
-						path = path.substring(path.indexOf("0") + 1);
-						Intent intentStartActivityGetMessageAndCountryCode = new Intent(this, ActivityGetMessageAndCountryCode.class);
-						intentStartActivityGetMessageAndCountryCode.putExtra(PATH_EXTRA_NAME, path);
-						startActivity(intentStartActivityGetMessageAndCountryCode);
-					} else {
-						//TODO : To test this, use a different file manager(other than the system default, Android file manager), or try any other way you like.
-						Log.d(LOG_INFO, "Not human readable");
-						Toast.makeText(this, "Not human readable", Toast.LENGTH_LONG).show();
-						//TODO : Show the user must select a human-readable text file(.txt file).(Using a dialog box, or Toast)
-					}
-				} else {
-					Toast.makeText(this, "The path is invalid!, (or something else) ERROR!", Toast.LENGTH_LONG).show();
-				}
-			}
-		}*/
 	}
 
 
